@@ -123,7 +123,7 @@ void Matriz2D_1<T>::eliminaFila(int fil)
 {
     if(fil >= 0 && fil < nFilas) 
     {
-        int **matrizNueva = reservar(nFilas-1, nColumnas);
+        T **matrizNueva = reservar(nFilas-1, nColumnas);
 
         // Copia filas previas
         copiarDatos(datos, matrizNueva, fil, nColumnas);
@@ -143,7 +143,7 @@ void Matriz2D_1<T>::eliminaColumna(int colEliminada)
 {
     if(colEliminada >= 0 && colEliminada < nColumnas) 
     {
-        int **matrizNueva = reservar(nFilas, nColumnas-1);
+        T **matrizNueva = reservar(nFilas, nColumnas-1);
 
         // Copia columnas previas
         copiarDatos(datos, matrizNueva, nFilas, colEliminada);
@@ -289,7 +289,7 @@ void Matriz2D_2<T>::eliminaFila(int fil)
     
     if(fil >= 0 && fil < nFilas) 
     {
-        int **matrizNueva = reservar(nFilas-1, nColumnas);
+        T **matrizNueva = reservar(nFilas-1, nColumnas);
 
         // Copia filas previas
         copiarDatos(datos, matrizNueva, fil, nColumnas);
@@ -308,7 +308,7 @@ void Matriz2D_2<T>::eliminaColumna(int colEliminada)
 {
     if(colEliminada >= 0 && colEliminada < nColumnas) 
     {
-        int **matrizNueva = reservar(nFilas, nColumnas-1);
+        T **matrizNueva = reservar(nFilas, nColumnas-1);
 
         // Copia columnas previas
         copiarDatos(datos, matrizNueva, nFilas, colEliminada);
