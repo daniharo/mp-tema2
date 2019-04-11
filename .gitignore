@@ -15,3 +15,7 @@ doc
 # Archivos ejecutables
 *.exe
 *.bin
+/Matriz2D/build/
+/Matriz2D/dist/
+
+.dep.inc
