@@ -191,18 +191,12 @@ T** Matriz2D_1<T>::reservar(int numFilas, int numColumnas)
 // Métodos de Matriz2D_2
 
 template <typename T>
-Matriz2D_2<T>::Matriz2D_2(int nf, int nc)
+Matriz2D_2<T>::Matriz2D_2(int nFilas, int nColumnas)
 {
-    nFilas = nf;
-    nColumnas = nf;
+    this->nFilas = nFilas;
+    this->nColumnas = nColumnas;
 
-    datos = new T * [nf];
-    datos[0] = new T [nf*nc];
-
-    for(int i = 1; i < nf; i++)
-    {
-        datos[i] = datos[i-1] + nColumnas;
-    }
+    datos = reservar(nFilas, nColumnas);
 }
 
 template <typename T>

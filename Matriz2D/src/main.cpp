@@ -14,7 +14,7 @@ using namespace std;
  */
 int main() {
 
-    // PRUEBA EJERCICIO 17 (Matria2D_1)
+    // PRUEBA EJERCICIO 17 (Matriz2D_1)
 
     cout << "***************** PRUEBA EJERCICIO 17 (Matriz2D_1) *****************" << endl << endl;
     // Se crea un objeto de la clase Matriz2D_1 con 5 filas y 5 columnas
@@ -152,7 +152,7 @@ int main() {
 
     /******************************************************************************************/
     /******************************************************************************************/
-    // PRUEBA EJERCICIO 18 (Matria2D_2)
+    // PRUEBA EJERCICIO 18 (Matriz2D_2)
 
     cout << endl << endl << endl;
     cout << "********************************************************************" << endl;
