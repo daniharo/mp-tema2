@@ -13,8 +13,8 @@
 #include "Matriz2D.h"
 using namespace std;
 
-
-void copiarDatos(int **origen, int **dest, int numFilas, int numColumnas, 
+template <typename T>
+void copiarDatos(T **origen, T **dest, int numFilas, int numColumnas, 
                  int fOriIni, int cOriIni, int fDestIni, int cDestIni)
 {
     for(int i = 0, iOr = fOriIni, iDest = fDestIni; i < numFilas; i++, iOr++, iDest++)
@@ -83,7 +83,7 @@ void Matriz2D_1<T>::copia(const Matriz2D_1<T> &otra)
     datos = reservar(nFilas, nColumnas);
 
     // Copiar datos
-    copiarDatos(otra.datos, datos, nFilas, nColumnas);
+    copiarDatos<T>(otra.datos, datos, nFilas, nColumnas);
 }
 
 template<typename T>
@@ -92,7 +92,7 @@ Matriz2D_1<T> Matriz2D_1<T>::copia(void)const
     // Crear el objeto a devolver
     Matriz2D_1<T> matriz(nFilas, nColumnas);
 
-    copiarDatos(datos, matriz.datos, nFilas, nColumnas);
+    copiarDatos<T>(datos, matriz.datos, nFilas, nColumnas);
 
     return matriz;
 }
@@ -112,7 +112,7 @@ Matriz2D_1<T>* Matriz2D_1<T>::submatriz(int filaIni, int colIni, int filaFin, in
         resultado = new Matriz2D_1<T>(filaFin-filaIni+1, colFin-colIni+1);
 
         // Copiar datos de la matriz
-        copiarDatos(datos, resultado->datos, resultado->nFilas, resultado->nColumnas, filaIni, colIni);
+        copiarDatos<T>(datos, resultado->datos, resultado->nFilas, resultado->nColumnas, filaIni, colIni);
     }
 
     return resultado;
@@ -126,10 +126,10 @@ void Matriz2D_1<T>::eliminaFila(int fil)
         T **matrizNueva = reservar(nFilas-1, nColumnas);
 
         // Copia filas previas
-        copiarDatos(datos, matrizNueva, fil, nColumnas);
+        copiarDatos<T>(datos, matrizNueva, fil, nColumnas);
 
         // Copia filas posteriores
-        copiarDatos(datos, matrizNueva, nFilas-fil-1, nColumnas, fil+1, 0, fil, 0);
+        copiarDatos<T>(datos, matrizNueva, nFilas-fil-1, nColumnas, fil+1, 0, fil, 0);
 
         // Liberar el espacio ocupado anteriormente y actualizar el puntero datos
         liberar();
@@ -146,10 +146,10 @@ void Matriz2D_1<T>::eliminaColumna(int colEliminada)
         T **matrizNueva = reservar(nFilas, nColumnas-1);
 
         // Copia columnas previas
-        copiarDatos(datos, matrizNueva, nFilas, colEliminada);
+        copiarDatos<T>(datos, matrizNueva, nFilas, colEliminada);
 
         // Copia columnas posteriores
-        copiarDatos(datos, matrizNueva, nFilas, nColumnas-colEliminada-1, 0, colEliminada+1, 0, colEliminada);
+        copiarDatos<T>(datos, matrizNueva, nFilas, nColumnas-colEliminada-1, 0, colEliminada+1, 0, colEliminada);
 
         liberar();
         datos = matrizNueva;
@@ -242,7 +242,7 @@ void Matriz2D_2<T>::copia(const Matriz2D_2<T> &otra)
     datos = reservar(nFilas, nColumnas);
 
     // Copiar datos
-    copiarDatos(otra.datos, datos, nFilas, nColumnas);
+    copiarDatos<T>(otra.datos, datos, nFilas, nColumnas);
 }
 
 template<typename T>
@@ -250,7 +250,7 @@ Matriz2D_2<T> Matriz2D_2<T>::copia(void)const
 {
     Matriz2D_2<T> matriz(nFilas, nColumnas);
 
-    copiarDatos(datos, matriz.datos, nFilas, nColumnas);
+    copiarDatos<T>(datos, matriz.datos, nFilas, nColumnas);
 
     return matriz;
 }
@@ -271,7 +271,7 @@ Matriz2D_2<T>* Matriz2D_2<T>::submatriz(int filaIni, int colIni, int filaFin, in
 
         // Copiar datos de la matriz
 
-        copiarDatos(datos, resultado->datos, resultado->nFilas, resultado->nColumnas, filaIni, colIni);
+        copiarDatos<T>(datos, resultado->datos, resultado->nFilas, resultado->nColumnas, filaIni, colIni);
     }
 
     return resultado;
@@ -286,10 +286,10 @@ void Matriz2D_2<T>::eliminaFila(int fil)
         T **matrizNueva = reservar(nFilas-1, nColumnas);
 
         // Copia filas previas
-        copiarDatos(datos, matrizNueva, fil, nColumnas);
+        copiarDatos<T>(datos, matrizNueva, fil, nColumnas);
 
         // Copia filas posteriores
-        copiarDatos(datos, matrizNueva, nFilas-fil-1, nColumnas, fil+1, 0, fil, 0);
+        copiarDatos<T>(datos, matrizNueva, nFilas-fil-1, nColumnas, fil+1, 0, fil, 0);
 
         liberar();
         datos = matrizNueva;
@@ -305,10 +305,10 @@ void Matriz2D_2<T>::eliminaColumna(int colEliminada)
         T **matrizNueva = reservar(nFilas, nColumnas-1);
 
         // Copia columnas previas
-        copiarDatos(datos, matrizNueva, nFilas, colEliminada);
+        copiarDatos<T>(datos, matrizNueva, nFilas, colEliminada);
 
         // Copia columnas posteriores
-        copiarDatos(datos, matrizNueva, nFilas, nColumnas-colEliminada-1, 0, colEliminada+1, 0, colEliminada);
+        copiarDatos<T>(datos, matrizNueva, nFilas, nColumnas-colEliminada-1, 0, colEliminada+1, 0, colEliminada);
 
         liberar();
         datos = matrizNueva;

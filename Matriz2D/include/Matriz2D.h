@@ -22,7 +22,8 @@
  * @param fDestIni Fila inicial en destino (por defecto = 0)
  * @param cDestIni Columna inicial en destino (por defecto = 0)
  */
-void copiarDatos(int **origen, int **dest, int numFilas, int numColumnas, 
+template <typename T>
+void copiarDatos(T **origen, T **dest, int numFilas, int numColumnas, 
                  int fOriIni = 0, int cOriIni = 0, int fDestIni = 0, int cDestIni = 0);
 
 //////////////////////////////////////////////////////////////////////////////////////////
